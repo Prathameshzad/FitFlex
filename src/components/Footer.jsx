@@ -258,40 +258,43 @@ const Footer = () => {
 
       {/* Social Media Icons */}
       <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          marginTop: "40px",
-          marginBottom:"40px"
-        }}
-      >
-        {[
-          FaFacebookF,
-          FaTelegramPlane,
-          FaLinkedinIn,
-          FaInstagram,
-          FaYoutube,
-          faXTwitter,
-        ].map((Icon, index) => (
-          <IconButton
-            key={index}
-            href="#"
-            color="inherit"
-            sx={{
-              fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
-              mx: { xs: 0.5, sm: 1 },
-              color: "grey.500",
-              "&:hover": { color: "#fff" },
-            }}
-          >
-            {index === 5 ? (
-              <FontAwesomeIcon icon={Icon} />
-            ) : (
-              <Icon fontSize="inherit" />
-            )}
-          </IconButton>
-        ))}
-      </Box>
+  sx={{
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "40px",
+    marginBottom: "40px"
+  }}
+>
+  {[
+    { icon: FaGithub, url: "https://facebook.com/" },
+    { icon: FaTelegramPlane, url: "https://t.me/" },
+    { icon: FaLinkedinIn, url: "https://linkedin.com/in/" },
+    { icon: FaInstagram, url: "https://instagram.com/" },
+    { icon: FaYoutube, url: "https://youtube.com/" },
+    { icon: faXTwitter, url: "https://twitter.com/" }
+  ].map((social, index) => (
+    <IconButton
+      key={index}
+      href={social.url}
+      target="_blank" // Open in a new tab
+      rel="noopener noreferrer" // Security measure
+      color="inherit"
+      sx={{
+        fontSize: { xs: "1.3rem", sm: "1.5rem", md: "1.8rem" },
+        mx: { xs: 0.5, sm: 1 },
+        color: "grey.500",
+        "&:hover": { color: "#fff" }
+      }}
+    >
+      {index === 5 ? (
+        <FontAwesomeIcon icon={social.icon} />
+      ) : (
+        <social.icon fontSize="inherit" />
+      )}
+    </IconButton>
+  ))}
+</Box>
+
 
       {/* Bottom Links */}
       <Box
